@@ -1,0 +1,56 @@
+= form_for @guest_reg, html: { class: "form form-horizontal guest_reg" } do |f|
+  .form-group
+    = f.label :full_name, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :full_name, :class => 'form-control'
+    = f.error_span(:full_name)
+  .form-group
+    = f.label :organization, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :organization, :class => 'form-control'
+    = f.error_span(:organization)
+  .form-group
+    = f.label :email, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :email, :class => 'form-control'
+    = f.error_span(:email)
+  .form-group
+    = f.label :alt_email, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :alt_email, :class => 'form-control'
+    = f.error_span(:alt_email)
+  .form-group
+    = f.label :purpose, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :purpose, :class => 'form-control'
+    = f.error_span(:purpose)
+  .form-group
+    = f.label :escortant, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :escortant, :class => 'form-control'
+    = f.error_span(:escortant)
+  .form-group
+    = f.label :not_before, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :not_before, :class => 'form-control'
+    = f.error_span(:not_before)
+  .form-group
+    = f.label :not_after, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :not_after, :class => 'form-control'
+    = f.error_span(:not_after)
+  .form-group
+    = f.label :approved, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :approved, :class => 'form-control'
+    = f.error_span(:approved)
+  .form-group
+    = f.label :approved_at, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :approved_at, :class => 'form-control'
+    = f.error_span(:approved_at)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil, :class => 'btn btn-primary'
+      '
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), guest_regs_path, :class => 'btn'

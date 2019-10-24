@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  organization: MyString
+  email: MyString
+  alt_email: MyString
+  purpose: MyString
+  escortant: MyString
+  not_before: 2019-10-23 17:27:17
+  not_after: 2019-10-23 17:27:17
+  approved: false
+  approved_at: 2019-10-23 17:27:17
+
+two:
+  full_name: MyString
+  organization: MyString
+  email: MyString
+  alt_email: MyString
+  purpose: MyString
+  escortant: MyString
+  not_before: 2019-10-23 17:27:17
+  not_after: 2019-10-23 17:27:17
+  approved: false
+  approved_at: 2019-10-23 17:27:17
