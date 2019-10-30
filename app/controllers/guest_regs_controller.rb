@@ -64,11 +64,11 @@ class GuestRegsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guest_reg
-      @guest_reg = GuestReg.find(params[:id])
+      @guest_reg = GuestReg.find_by(uuid: params[:uuid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_reg_params
-      params.require(:guest_reg).permit(:full_name, :organization, :email, :alt_email, :purpose, :escortant, :not_before, :not_after, :approved, :approved_at)
+      params.require(:guest_reg).permit(:full_name, :organization, :email, :alt_email, :purpose, :escortant, :not_before, :not_after, :approved, :approved_at, :uuid)
     end
 end
