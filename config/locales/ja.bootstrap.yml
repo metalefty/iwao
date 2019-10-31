@@ -10,12 +10,15 @@ ja:
   helpers:
     actions: "Actions"
     links:
-      back: "Back"
-      cancel: "Cancel"
-      confirm: "Are you sure?"
-      destroy: "Delete"
+      back: "戻る"
+      cancel: "キャンセル"
+      confirm: "申請を却下(削除)します。却下すると元に戻せません。よろしいですか？"
+      destroy: "削除"
       new: "New"
-      edit: "Edit"
+      edit: "編集"
+      approve: "承認"
+      approved: "承認済"
+      reject: "却下"
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"
