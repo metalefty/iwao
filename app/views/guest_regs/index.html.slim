@@ -11,7 +11,6 @@ table.table.table-striped
       th= model_class.human_attribute_name(:alt_email)
       th= model_class.human_attribute_name(:purpose)
       th= model_class.human_attribute_name(:escortant)
-      th= model_class.human_attribute_name(:not_before)
       th= model_class.human_attribute_name(:not_after)
       th= model_class.human_attribute_name(:approved)
       th= model_class.human_attribute_name(:approved_at)
@@ -27,11 +26,10 @@ table.table.table-striped
         td= guest_reg.alt_email
         td= guest_reg.purpose
         td= guest_reg.escortant
-        td= guest_reg.not_before
         td= guest_reg.not_after
-        td= guest_reg.approved
+        td= '✓' if guest_reg.approved
         td= guest_reg.approved_at
-        td=l guest_reg.created_at
+        td= guest_reg.created_at
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_guest_reg_path(guest_reg), :class => 'btn btn-default btn-xs'
           '
