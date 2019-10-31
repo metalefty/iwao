@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    models:
+      guest_reg:
+        one: ゲストWi-Fi利用申請
+        other: ゲストWi-Fi利用申請
     attributes:
       guest_reg:
         approved: 承認済み
@@ -8,7 +12,9 @@ ja:
         alt_email: メールアドレス(予備)
         escortant: 受け入れ担当者・面会希望者
         full_name: フルネーム
-        not_after: 後ではない
+        not_after: 利用期限
         not_before: 前ではない
         organization: 所属
         purpose: 利用目的
+        created_at: 申請時刻
+        uuid: UUID
