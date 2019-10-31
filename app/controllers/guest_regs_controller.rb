@@ -64,7 +64,7 @@ class GuestRegsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guest_reg
-      @guest_reg = GuestReg.find_by(uuid: params[:uuid])
+      @guest_reg = GuestReg.find_by!(uuid: params[:uuid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
