@@ -21,6 +21,11 @@ class GuestRegsController < ApplicationController
   def edit
   end
 
+  # GET /guest_regs/sent
+  def sent
+  end
+
+
   # POST /guest_regs
   # POST /guest_regs.json
   def create
@@ -28,7 +33,7 @@ class GuestRegsController < ApplicationController
 
     respond_to do |format|
       if @guest_reg.save
-        format.html { redirect_to @guest_reg, notice: 'Guest reg was successfully created.' }
+        format.html { redirect_to sent_guest_regs_url }
         format.json { render :show, status: :created, location: @guest_reg }
       else
         format.html { render :new }
