@@ -56,3 +56,4 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'pry-rails'
+gem 'config'

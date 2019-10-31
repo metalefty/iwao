@@ -1,0 +1,6 @@
+radius:
+  adapter: mysql2
+  host: localhost
+  username: root
+  password: 
+  database: radius
