@@ -42,7 +42,7 @@
   .row
     .col-lg-12
       - unless @guest_reg.approved?
-        = link_to t('.approve', :default => t("helpers.links.approve")), approve_guest_reg_path, class: 'btn btn-success'
+        = link_to t('.approve', :default => t("helpers.links.approve")), approve_guest_reg_path, method: 'post', class: 'btn btn-success'
         '
         = link_to t('.reject', :default => t("helpers.links.reject")), guest_reg_path(@guest_reg), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
         '

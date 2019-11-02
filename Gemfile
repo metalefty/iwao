@@ -57,3 +57,4 @@ gem 'twitter-bootstrap-rails'
 
 gem 'pry-rails'
 gem 'config'
+gem 'fradium'

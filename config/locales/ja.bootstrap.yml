@@ -12,7 +12,7 @@ ja:
     links:
       back: "戻る"
       cancel: "キャンセル"
-      confirm: "申請を却下(削除)します。却下すると元に戻せません。よろしいですか？"
+      confirm: "申請を却下します。却下すると申請は削除され、元に戻せません。よろしいですか？"
       destroy: "削除"
       new: "New"
       edit: "編集"
@@ -22,5 +22,6 @@ ja:
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"
-      new: "New %{model}"
+      new: "新規 %{model}"
       delete: "Delete %{model}"
+      confirm: "%{model} 入力内容確認"

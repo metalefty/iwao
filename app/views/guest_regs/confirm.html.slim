@@ -1,0 +1,47 @@
+- model_class = GuestReg
+.page-header
+  h1=t '.title', :default => [:'helpers.titles.confirm', 'Confirm %{model}'], :model => model_class.model_name.human
+
+.container
+
+  .alert.alert-info 下の内容で申請します。よろしいですか？
+
+
+  = form_for @guest_reg, html: { class: "form form-horizontal guest_reg" } do |f|
+    .form-group
+      = f.label :full_name, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :full_name, :class => 'form-control', readonly: true
+      = f.error_span(:full_name)
+    .form-group
+      = f.label :organization, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :organization, :class => 'form-control', readonly: true
+      = f.error_span(:organization)
+    .form-group
+      = f.label :email, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :email, :class => 'form-control', readonly: true
+      = f.error_span(:email)
+    .form-group
+      = f.label :alt_email, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :alt_email, :class => 'form-control', readonly: true
+      = f.error_span(:alt_email)
+    .form-group
+      = f.label :purpose, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :purpose, :class => 'form-control', readonly: true
+      = f.error_span(:purpose)
+    .form-group
+      = f.label :escortant, :class => 'control-label col-lg-2'
+      .col-lg-10
+        = f.text_field :escortant, :class => 'form-control', readonly: true
+      = f.error_span(:escortant)
+    .form-group
+      .col-lg-offset-2.col-lg-10 reCHAPTCHA
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        = f.submit nil, :class => 'btn btn-primary'
+        '
+        = link_to t('helpers.links.back'), 'javascript:history.back()', class: 'btn btn-default'

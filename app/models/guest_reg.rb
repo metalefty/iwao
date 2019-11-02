@@ -24,7 +24,7 @@ class GuestReg < ApplicationRecord
   end
 
   def approve
-    return self if self.approved?
+    raise StandardError if self.approved?
 
     self.approved = true
     self.approved_at = Time.zone.now
@@ -44,8 +44,9 @@ class GuestReg < ApplicationRecord
       f.create_user(self.username)
     else
       f.modify_user(self.username)
-      f.set_expiration(self.username, self.not_after.to_time)
     end
+
+    f.set_expiration(self.username, self.not_after.to_time)
   end
 
 end

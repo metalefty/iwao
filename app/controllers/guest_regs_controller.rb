@@ -1,5 +1,5 @@
 class GuestRegsController < ApplicationController
-  before_action :set_guest_reg, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest_reg, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /guest_regs
   # GET /guest_regs.json
@@ -23,6 +23,25 @@ class GuestRegsController < ApplicationController
 
   # GET /guest_regs/sent
   def sent
+  end
+
+  # GET /guest_regs/approved
+  def approved
+  end
+
+  def approve
+    if @guest_reg.approved?
+      redirect_to @guest_reg and return
+    end
+
+    @guest_reg.approve
+    redirect_to approved_guest_regs_path
+  end
+
+  # GET /guest_regs/confirm
+  def confirm
+    @guest_reg = GuestReg.new(guest_reg_params)
+    render :new if @guest_reg.invalid?
   end
 
 

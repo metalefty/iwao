@@ -3,12 +3,13 @@ Rails.application.routes.draw do
 
   resources :guest_regs, param: :uuid do
     member do
-      get :approve
+      post :approve
     end
 
     collection do
       get :sent
       get :approved
+      post :confirm
     end
   end
 
