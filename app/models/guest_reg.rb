@@ -4,7 +4,7 @@ class GuestReg < ApplicationRecord
   validates :full_name, presence: true
   validates :organization, presence: true
   validates :email, presence: true, format: { with: EMAIL_REGEX }
-  validates :alt_email, format: { with: EMAIL_REGEX }
+  validates :alt_email, allow_blank: true, format: { with: EMAIL_REGEX }
   validates :purpose, presence: true
   validates :escortant, presence: true
 
