@@ -14,7 +14,7 @@ ja:
       cancel: "キャンセル"
       confirm: "申請を却下します。却下すると申請は削除され、元に戻せません。よろしいですか？"
       destroy: "削除"
-      new: "New"
+      new: "新規"
       edit: "編集"
       approve: "承認"
       approved: "承認済"
