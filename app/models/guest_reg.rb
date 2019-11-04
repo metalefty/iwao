@@ -1,8 +1,10 @@
 class GuestReg < ApplicationRecord
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :full_name, presence: true
   validates :organization, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :alt_email, format: { with: EMAIL_REGEX }
   validates :purpose, presence: true
   validates :escortant, presence: true
 
