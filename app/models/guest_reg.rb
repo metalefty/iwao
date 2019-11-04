@@ -15,8 +15,24 @@ class GuestReg < ApplicationRecord
     self.not_after = Date.today.end_of_day
   end
 
+  after_create do
+    RegistrationNotifierMailer.registration_receipt(self).deliver
+    RegistrationNotifierMailer.request_for_approval(self).deliver
+  end
+
   def to_param
     uuid
+  end
+
+  def to_s
+    s = ""
+
+    self.attributes.each do |key, value|
+      next if ["uuid", "username", "not_before", "approved", "approved_at", "updated_at"].include?(key)
+      next if key == "alt_email" && value.empty?
+      s << "#{I18n.t("activerecord.attributes.guest_reg.#{key}")}:\n\t#{value}\n"
+    end
+    s
   end
 
   def approved?
@@ -31,7 +47,17 @@ class GuestReg < ApplicationRecord
     create_radius_user
     self.save!
 
+    RegistrationNotifierMailer.registration_approved(self).deliver
+
     self
+  end
+
+  def radius_password
+    return unless self.approved?
+
+    f = Fradium.new(Settings.radius.to_h)
+    raduser = f.find_user(self.username)
+    raduser.first[:value]
   end
 
   private

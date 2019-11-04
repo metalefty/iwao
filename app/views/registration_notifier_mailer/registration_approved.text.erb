@@ -1,0 +1,13 @@
+<%= @guest_reg.organization %> <%= @guest_reg.full_name %> 様
+
+<%= I18n.l(@guest_reg.approved_at, format: :long) %>
+
+以下の<%= GuestReg.model_name.human %>が承認されました。
+
+<%= @guest_reg %>
+
+Wi-Fi SSID : <%= IwaoConfig.fetch(:wifi_ssid) %>
+Username   : <%= @guest_reg.username %>
+Password   : <%= @guest_reg.radius_password %>
+
+
