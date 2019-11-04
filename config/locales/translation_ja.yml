@@ -19,3 +19,11 @@ ja:
         purpose: 利用目的
         created_at: 申請時刻
         uuid: UUID
+    placeholders:
+      guest_reg:
+        full_name: 飯塚 岩男
+        organization: イワオ株式会社 法人営業部
+        email: iizuka.iwao@example.co.jp
+        alt_email: iizuka.iwao@gmail.com.example
+        purpose: イワオシステム開発会議;飯塚ブロックチェーン勉強会
+        escortant: 弊社の受け入れ担当者・面会希望者
