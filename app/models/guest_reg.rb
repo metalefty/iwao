@@ -15,7 +15,7 @@ class GuestReg < ApplicationRecord
     self.not_after = Date.today.end_of_day
   end
 
-  after_create do
+  after_commit on: :create do
     RegistrationNotifierMailer.registration_receipt(self).deliver
     RegistrationNotifierMailer.request_for_approval(self).deliver
   end
