@@ -5,9 +5,12 @@
 以下の<%= GuestReg.model_name.human %>が承認されました。
 
 <%= @guest_reg %>
+<% ssid = IwaoConfig.fetch(:wifi_ssid) %>
+ご利用方法:
+ネットワーク名(SSID)「<%= ssid %>」に、以下のユーザー名とパスワードで接続してください。
 
-Wi-Fi SSID : <%= IwaoConfig.fetch(:wifi_ssid) %>
-Username   : <%= @guest_reg.username %>
-Password   : <%= @guest_reg.radius_password %>
+Username : <%= @guest_reg.username %>
+Password : <%= @guest_reg.radius_password %>
 
+ご利用期限は <%= I18n.l(@guest_reg.not_after, format: :long) %> までとなります。
 
