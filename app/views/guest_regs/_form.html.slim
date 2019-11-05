@@ -1,35 +1,34 @@
 = form_for @guest_reg, html: { class: "form form-horizontal guest_reg" }, url: { action: :confirm } do |f|
+  - if @guest_reg.errors.any?
+    .alert.alert-danger
+      ul
+        - @guest_reg.errors.full_messages.each do |error|
+          li= error
+
   .form-group
     = f.label :full_name, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :full_name, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.full_name')
-    = f.error_span(:full_name)
   .form-group
     = f.label :organization, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :organization, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.organization')
-    = f.error_span(:organization)
   .form-group
     = f.label :email, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :email, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.email')
-    = f.error_span(:email)
   .form-group
     = f.label :alt_email, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :alt_email, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.alt_email')
-    = f.error_span(:alt_email)
   .form-group
     = f.label :purpose, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :purpose, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.purpose')
-    = f.error_span(:purpose)
   .form-group
     = f.label :escortant, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :escortant, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.escortant')
-
-    = f.error_span(:escortant)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil, :class => 'btn btn-primary'
