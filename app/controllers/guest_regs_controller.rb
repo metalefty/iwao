@@ -41,7 +41,10 @@ class GuestRegsController < ApplicationController
   # GET /guest_regs/confirm
   def confirm
     @guest_reg = GuestReg.new(guest_reg_params)
-    render :new if @guest_reg.invalid?
+
+    if @guest_reg.invalid?
+      render :new
+    end
   end
 
 
@@ -50,9 +53,17 @@ class GuestRegsController < ApplicationController
   def create
     @guest_reg = GuestReg.new(guest_reg_params)
 
+    if params[:back]
+      render :new and return
+    end
+
+    if !verify_recaptcha(model: @guest_reg)
+      render :confirm and return
+    end
+
     respond_to do |format|
       if @guest_reg.save
-        format.html { redirect_to sent_guest_regs_url }
+        format.html { redirect_to sent_guest_regs_url, status: :see_other }
         format.json { render :show, status: :created, location: @guest_reg }
       else
         format.html { render :new }

@@ -205,3 +205,8 @@ ja:
       long: "%Y-%m-%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA 検証に失敗しました。'
+      recaptcha_unreachable: 'reCAPTCHA サーバーに接続できませんでした。しばらく待ってからお試しください。'
+

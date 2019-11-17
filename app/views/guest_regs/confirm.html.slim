@@ -5,7 +5,11 @@
 .container
 
   .alert.alert-info 下の内容で申請します。よろしいですか？
-
+  - if @guest_reg.errors.any?
+    .alert.alert-danger
+      ul
+        - @guest_reg.errors.full_messages.each do |error|
+          li= error
 
   = form_for @guest_reg, html: { class: "form form-horizontal guest_reg" } do |f|
     .form-group
@@ -39,9 +43,10 @@
         = f.text_field :escortant, :class => 'form-control', readonly: true
       = f.error_span(:escortant)
     .form-group
-      .col-lg-offset-2.col-lg-10 reCHAPTCHA
+      .col-lg-offset-2.col-lg-10
+        = recaptcha_tags
     .form-group
       .col-lg-offset-2.col-lg-10
         = f.submit nil, :class => 'btn btn-primary'
         '
-        = link_to t('helpers.links.back'), 'javascript:history.back()', class: 'btn btn-default'
+        = f.submit t('helpers.links.back'), name: 'back', class: 'btn btn-default'
