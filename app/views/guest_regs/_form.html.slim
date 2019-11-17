@@ -6,29 +6,32 @@
           li= error
 
   .form-group
-    = f.label :full_name, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :full_name, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :full_name, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.full_name')
   .form-group
-    = f.label :organization, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :organization, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :organization, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.organization')
   .form-group
-    = f.label :email, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :email, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :email, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.email')
   .form-group
-    = f.label :alt_email, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :alt_email, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :alt_email, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.alt_email')
   .form-group
-    = f.label :purpose, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :purpose, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :purpose, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.purpose')
   .form-group
-    = f.label :escortant, class: 'control-label col-lg-2'
-    .col-lg-10
+    = f.label :escortant, class: 'control-label col-md-2'
+    .col-md-10
       = f.text_field :escortant, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.escortant')
   .form-group
-    .col-lg-offset-2.col-lg-10
+    .col-md-offset-2.col-md-10
+      == IwaoConfig.fetch(:new_guest_reg_note)
+  .form-group
+    .col-md-offset-2.col-md-10
       = f.submit nil, :class => 'btn btn-primary'
