@@ -1,4 +1,7 @@
 class GuestReg < ApplicationRecord
+  class AlreadyApprovedError < StandardError; end
+  class RegistrationExpiredError < StandardError; end
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :full_name, presence: true
@@ -42,7 +45,8 @@ class GuestReg < ApplicationRecord
   end
 
   def approve
-    raise StandardError if self.approved?
+    raise AlreadyApprovedError if self.approved?
+    raise RegistrationExpiredError if self.expired?
 
     self.approved = true
     self.approved_at = Time.zone.now
@@ -52,6 +56,10 @@ class GuestReg < ApplicationRecord
     RegistrationNotifierMailer.registration_approved(self).deliver
 
     self
+  end
+
+  def expired?
+    self.not_after < Time.now
   end
 
   def radius_password

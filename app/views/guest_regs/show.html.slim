@@ -8,6 +8,9 @@
       - if @guest_reg.approved?
         .alert.alert-warning
           | この申請は承認済みです
+      - elsif @guest_reg.expired?
+        .alert.alert-warning
+          | この申請は期限切れです
       -else
         .alert.alert-info
           | 以下の利用申請を承認しますか？
@@ -39,7 +42,7 @@
 
   .row
     .col-lg-12
-      - unless @guest_reg.approved?
+      - unless @guest_reg.approved? || @guest_reg.expired?
         = link_to t('.approve', :default => t("helpers.links.approve")), approve_guest_reg_path, method: 'post', class: 'btn btn-success'
         '
         = link_to t('.reject', :default => t("helpers.links.reject")), guest_reg_path(@guest_reg), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
