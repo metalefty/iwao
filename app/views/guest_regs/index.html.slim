@@ -8,7 +8,6 @@ table.table.table-striped
       th= model_class.human_attribute_name(:full_name)
       th= model_class.human_attribute_name(:organization)
       th= model_class.human_attribute_name(:email)
-      th= model_class.human_attribute_name(:alt_email)
       th= model_class.human_attribute_name(:purpose)
       th= model_class.human_attribute_name(:escortant)
       th= model_class.human_attribute_name(:username)
@@ -21,8 +20,10 @@ table.table.table-striped
       tr
         td= guest_reg.full_name
         td= guest_reg.organization
-        td= guest_reg.email
-        td= guest_reg.alt_email
+        td
+          div= guest_reg.email
+          - unless guest_reg.alt_email.empty?
+            div= guest_reg.alt_email
         td= guest_reg.purpose
         td= guest_reg.escortant
         td= guest_reg.username
