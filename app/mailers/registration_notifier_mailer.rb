@@ -6,9 +6,8 @@ class RegistrationNotifierMailer < ApplicationMailer
     header = {}
     header.store(:to, guest_reg.email)
     header.store(:cc, guest_reg.alt_email) unless guest_reg.alt_email.empty?
-    header.store(:subject, IwaoConfig.fetch(:email_subject_registration_approved))
+    header.store(:subject, IwaoConfig.fetch(:email_subject_registration_receipt))
     mail(header)
-
   end
 
   def request_for_approval(guest_reg)
