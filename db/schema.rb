@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_014458) do
     t.string "email"
     t.string "alt_email"
     t.string "purpose"
-    t.string "escortant"
+    t.string "escort"
     t.datetime "not_before"
     t.datetime "not_after"
     t.boolean "approved"

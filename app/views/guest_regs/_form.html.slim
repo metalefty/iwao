@@ -26,9 +26,9 @@
     .col-md-10
       = f.text_field :purpose, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.purpose')
   .form-group
-    = f.label :escortant, class: 'control-label col-md-2'
+    = f.label :escort, class: 'control-label col-md-2'
     .col-md-10
-      = f.text_field :escortant, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.escortant')
+      = f.text_field :escort, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.escort')
   .form-group
     .col-md-offset-2.col-md-10
       == IwaoConfig.fetch(:new_guest_reg_note)

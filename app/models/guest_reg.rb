@@ -9,7 +9,7 @@ class GuestReg < ApplicationRecord
   validates :email, presence: true, format: { with: EMAIL_REGEX }
   validates :alt_email, allow_blank: true, format: { with: EMAIL_REGEX }
   validates :purpose, presence: true
-  validates :escortant, presence: true
+  validates :escort, presence: true
 
   before_create do
     prefix = IwaoConfig.fetch(:radius_username_prefix)

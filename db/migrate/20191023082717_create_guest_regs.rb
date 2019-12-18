@@ -6,7 +6,7 @@ class CreateGuestRegs < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :alt_email
       t.string :purpose
-      t.string :escortant
+      t.string :escort
       t.datetime :not_before
       t.datetime :not_after
       t.boolean :approved

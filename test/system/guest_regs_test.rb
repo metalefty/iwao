@@ -18,7 +18,7 @@ class GuestRegsTest < ApplicationSystemTestCase
     check "Approved" if @guest_reg.approved
     fill_in "Approved at", with: @guest_reg.approved_at
     fill_in "Email", with: @guest_reg.email
-    fill_in "Escortant", with: @guest_reg.escortant
+    fill_in "Escortant", with: @guest_reg.escort
     fill_in "Full name", with: @guest_reg.full_name
     fill_in "Not after", with: @guest_reg.not_after
     fill_in "Not before", with: @guest_reg.not_before
@@ -38,7 +38,7 @@ class GuestRegsTest < ApplicationSystemTestCase
     check "Approved" if @guest_reg.approved
     fill_in "Approved at", with: @guest_reg.approved_at
     fill_in "Email", with: @guest_reg.email
-    fill_in "Escortant", with: @guest_reg.escortant
+    fill_in "Escortant", with: @guest_reg.escort
     fill_in "Full name", with: @guest_reg.full_name
     fill_in "Not after", with: @guest_reg.not_after
     fill_in "Not before", with: @guest_reg.not_before

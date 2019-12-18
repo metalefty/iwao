@@ -17,7 +17,7 @@ class GuestRegsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create guest_reg" do
     assert_difference('GuestReg.count') do
-      post guest_regs_url, params: { guest_reg: { alt_email: @guest_reg.alt_email, approved: @guest_reg.approved, approved_at: @guest_reg.approved_at, email: @guest_reg.email, escortant: @guest_reg.escortant, full_name: @guest_reg.full_name, not_after: @guest_reg.not_after, not_before: @guest_reg.not_before, organization: @guest_reg.organization, purpose: @guest_reg.purpose } }
+      post guest_regs_url, params: { guest_reg: { alt_email: @guest_reg.alt_email, approved: @guest_reg.approved, approved_at: @guest_reg.approved_at, email: @guest_reg.email, escort: @guest_reg.escort, full_name: @guest_reg.full_name, not_after: @guest_reg.not_after, not_before: @guest_reg.not_before, organization: @guest_reg.organization, purpose: @guest_reg.purpose } }
     end
 
     assert_redirected_to guest_reg_url(GuestReg.last)
@@ -34,7 +34,7 @@ class GuestRegsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update guest_reg" do
-    patch guest_reg_url(@guest_reg), params: { guest_reg: { alt_email: @guest_reg.alt_email, approved: @guest_reg.approved, approved_at: @guest_reg.approved_at, email: @guest_reg.email, escortant: @guest_reg.escortant, full_name: @guest_reg.full_name, not_after: @guest_reg.not_after, not_before: @guest_reg.not_before, organization: @guest_reg.organization, purpose: @guest_reg.purpose } }
+    patch guest_reg_url(@guest_reg), params: { guest_reg: { alt_email: @guest_reg.alt_email, approved: @guest_reg.approved, approved_at: @guest_reg.approved_at, email: @guest_reg.email, escort: @guest_reg.escort, full_name: @guest_reg.full_name, not_after: @guest_reg.not_after, not_before: @guest_reg.not_before, organization: @guest_reg.organization, purpose: @guest_reg.purpose } }
     assert_redirected_to guest_reg_url(@guest_reg)
   end
 

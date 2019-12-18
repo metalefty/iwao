@@ -104,6 +104,6 @@ class GuestRegsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_reg_params
-      params.require(:guest_reg).permit(:full_name, :organization, :email, :alt_email, :purpose, :escortant, :not_before, :not_after, :approved, :approved_at, :uuid)
+      params.require(:guest_reg).permit(:full_name, :organization, :email, :alt_email, :purpose, :escort, :not_before, :not_after, :approved, :approved_at, :uuid)
     end
 end

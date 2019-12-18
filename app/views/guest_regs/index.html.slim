@@ -9,7 +9,7 @@ table.table.table-striped
       th= model_class.human_attribute_name(:organization)
       th= model_class.human_attribute_name(:email)
       th= model_class.human_attribute_name(:purpose)
-      th= model_class.human_attribute_name(:escortant)
+      th= model_class.human_attribute_name(:escort)
       th= model_class.human_attribute_name(:username)
       th= model_class.human_attribute_name(:not_after)
       th= model_class.human_attribute_name(:approved_at)
@@ -25,7 +25,7 @@ table.table.table-striped
           - unless guest_reg.alt_email.empty?
             div= guest_reg.alt_email
         td= guest_reg.purpose
-        td= guest_reg.escortant
+        td= guest_reg.escort
         td= guest_reg.username
         td= guest_reg.not_after
         td= guest_reg.approved_at
