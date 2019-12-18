@@ -5,6 +5,8 @@ class GuestRegsController < ApplicationController
   # GET /guest_regs.json
   def index
     @guest_regs = GuestReg.all
+    # temporarily disabled
+    redirect_to new_guest_reg_url, status: :see_other
   end
 
   # GET /guest_regs/1
