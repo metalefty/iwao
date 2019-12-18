@@ -17,5 +17,10 @@ module Iwao
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Restrict access on /admin
+    config.middleware.use Rack::Access, {
+      '/admin' => ENV['IWAO_ADMIN_ACCESS_ALLOWED_IP']&.split
+    }
   end
 end
