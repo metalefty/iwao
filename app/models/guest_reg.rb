@@ -16,7 +16,7 @@ class GuestReg < ApplicationRecord
     suffix = IwaoConfig.fetch(:radius_username_suffix)
 
     self.uuid = SecureRandom.uuid.tr('-', '')
-    self.username = "#{prefix}#{Digest::SHA256.hexdigest(self.email)[0, 6]}#{suffix}"
+    self.username = "#{prefix}#{Digest::SHA256.hexdigest(self.email)[0, 5]}#{suffix}"
     self.not_after = Date.today.end_of_day
   end
 
