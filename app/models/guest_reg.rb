@@ -65,7 +65,7 @@ class GuestReg < ApplicationRecord
   def radius_password
     return unless self.approved?
 
-    f = Fradium.new(Settings.radius.to_h)
+    f = Fradium.new(Rails.application.credentials.radius)
     raduser = f.find_user(self.username)
     raduser.first[:value]
   end
@@ -73,7 +73,7 @@ class GuestReg < ApplicationRecord
   private
 
   def create_radius_user
-    f = Fradium.new(Settings.radius.to_h)
+    f = Fradium.new(Rails.application.credentials.radius)
     raduser = f.find_user(self.username)
 
     if raduser&.count == 0
