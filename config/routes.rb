@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'guest_regs#new'
 
   resources :guest_regs, param: :uuid do
