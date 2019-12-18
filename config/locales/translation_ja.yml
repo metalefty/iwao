@@ -10,7 +10,7 @@ ja:
         approved: 承認済み
         approved_at: 承認時刻
         email: メールアドレス
-        alt_email: メールアドレス(予備)
+        alt_email: 予備メールアドレス(任意)
         escortant: 弊社担当者
         full_name: フルネーム
         not_after: 利用期限
@@ -26,4 +26,4 @@ ja:
         email: iizuka.iwao@example.co.jp
         alt_email: iizuka.iwao@gmail.com.example
         purpose: イワオシステム開発会議;飯塚ブロックチェーン勉強会
-        escortant: 弊社の受け入れ担当者・面会希望者
+        escortant: 弊社の面会希望者・受け入れ担当者
