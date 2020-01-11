@@ -3,6 +3,7 @@ class GuestReg < ApplicationRecord
   class RegistrationExpiredError < StandardError; end
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  EXCLUDE_ATTRIBUTES = %w{uuid username not_before approved approved_at updated_at}
 
   validates :full_name, presence: true
   validates :organization, presence: true
@@ -33,7 +34,7 @@ class GuestReg < ApplicationRecord
     s = ""
 
     self.attributes.each do |key, value|
-      next if ["uuid", "username", "not_before", "approved", "approved_at", "updated_at"].include?(key)
+      next if EXCLUDE_ATTRIBUTES.include?(key)
       next if key == "alt_email" && value.empty?
       s << "#{I18n.t("activerecord.attributes.guest_reg.#{key}")}:\n\t#{value}\n"
     end
