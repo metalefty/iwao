@@ -1,8 +1,10 @@
 class GuestReg < ApplicationRecord
-  class AlreadyApprovedError < StandardError; end
+  class RegistrationAlreadyApprovedError < StandardError; end
   class RegistrationExpiredError < StandardError; end
+  class RegistrationNotApprovedError < StandardError; end
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  EXCLUDE_ATTRIBUTES = %w{uuid username not_before approved approved_at updated_at}
 
   validates :full_name, presence: true
   validates :organization, presence: true
@@ -20,11 +22,6 @@ class GuestReg < ApplicationRecord
     self.not_after = Date.today.end_of_day
   end
 
-  after_commit on: :create do
-    RegistrationNotifierMailer.registration_receipt(self).deliver
-    RegistrationNotifierMailer.request_for_approval(self).deliver
-  end
-
   def to_param
     uuid
   end
@@ -33,7 +30,7 @@ class GuestReg < ApplicationRecord
     s = ""
 
     self.attributes.each do |key, value|
-      next if ["uuid", "username", "not_before", "approved", "approved_at", "updated_at"].include?(key)
+      next if EXCLUDE_ATTRIBUTES.include?(key)
       next if key == "alt_email" && value.empty?
       s << "#{I18n.t("activerecord.attributes.guest_reg.#{key}")}:\n\t#{value}\n"
     end
@@ -45,17 +42,13 @@ class GuestReg < ApplicationRecord
   end
 
   def approve
-    raise AlreadyApprovedError if self.approved?
+    raise RegistrationAlreadyApprovedError if self.approved?
     raise RegistrationExpiredError if self.expired?
 
     self.approved = true
     self.approved_at = Time.zone.now
     create_radius_user
-    self.save!
-
-    RegistrationNotifierMailer.registration_approved(self).deliver
-
-    self
+    self.save
   end
 
   def expired?
@@ -84,5 +77,4 @@ class GuestReg < ApplicationRecord
 
     f.set_expiration(self.username, self.not_after.to_time)
   end
-
 end

@@ -27,3 +27,12 @@ ja:
         alt_email: iizuka.iwao@gmail.com.example
         purpose: イワオシステム開発会議;飯塚ブロックチェーン勉強会
         escort: 弊社の面会希望者・受け入れ担当者
+  helpers:
+    label:
+      term_of_service: 利用規約
+  notification:
+    guest_reg:
+      request_for_approval:
+        新しいゲストWi-Fi利用申請が送信されました。以下のURLから承認してください。
+      request_has_been_approved:
+        申請番号 %{id} は承認されました。
