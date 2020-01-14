@@ -36,7 +36,12 @@ class GuestRegsController < ApplicationController
       redirect_to @guest_reg and return
     end
 
-    @guest_reg.approve
+    if @guest_reg.approve
+      notifier = GuestRegNotifier.new(@guest_reg)
+      notifier.slack_approved
+      notifier.email_registration_approved
+    end
+
     redirect_to approved_guest_regs_path
   end
 
@@ -65,6 +70,11 @@ class GuestRegsController < ApplicationController
 
     respond_to do |format|
       if @guest_reg.save
+        notifier = GuestRegNotifier.new(@guest_reg)
+        notifier.slack_request_for_approval
+        notifier.email_request_for_approval
+        notifier.email_registration_receipt
+
         format.html { redirect_to sent_guest_regs_url, status: :see_other }
         format.json { render :show, status: :created, location: @guest_reg }
       else

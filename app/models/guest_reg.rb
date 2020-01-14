@@ -1,6 +1,7 @@
 class GuestReg < ApplicationRecord
-  class AlreadyApprovedError < StandardError; end
+  class RegistrationAlreadyApprovedError < StandardError; end
   class RegistrationExpiredError < StandardError; end
+  class RegistrationNotApprovedError < StandardError; end
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   EXCLUDE_ATTRIBUTES = %w{uuid username not_before approved approved_at updated_at}
@@ -19,11 +20,6 @@ class GuestReg < ApplicationRecord
     self.uuid = SecureRandom.uuid.tr('-', '')
     self.username = "#{prefix}#{Digest::SHA256.hexdigest(self.email)[0, 5]}#{suffix}"
     self.not_after = Date.today.end_of_day
-  end
-
-  after_commit on: :create do
-    RegistrationNotifierMailer.registration_receipt(self).deliver
-    RegistrationNotifierMailer.request_for_approval(self).deliver
   end
 
   def to_param
@@ -46,17 +42,13 @@ class GuestReg < ApplicationRecord
   end
 
   def approve
-    raise AlreadyApprovedError if self.approved?
+    raise RegistrationAlreadyApprovedError if self.approved?
     raise RegistrationExpiredError if self.expired?
 
     self.approved = true
     self.approved_at = Time.zone.now
     create_radius_user
-    self.save!
-
-    RegistrationNotifierMailer.registration_approved(self).deliver
-
-    self
+    self.save
   end
 
   def expired?
@@ -85,5 +77,4 @@ class GuestReg < ApplicationRecord
 
     f.set_expiration(self.username, self.not_after.to_time)
   end
-
 end
