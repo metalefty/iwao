@@ -30,7 +30,8 @@ class GuestRegNotifier
     return if Rails.env.test?
     raise SlackNotificationNotEnabled unless @slack_notification_enable
 
-    @slack.post text: '<!here>', attachments: slack_attachment_request_for_approval
+    text = "#{I18n.t('notification.guest_reg.request_for_approval')}\n#{guest_reg_url(@guest_reg)}"
+    @slack.post text: text, at: :here, attachments: slack_attachment_request_for_approval
   end
 
   def slack_approved
@@ -46,7 +47,6 @@ class GuestRegNotifier
     subject = IwaoConfig.fetch(:email_subject_request_for_approval)
     {
       fallback: subject,
-      pretext: "#{I18n.t('notification.guest_reg.request_for_approval')}\n#{guest_reg_url(@guest_reg)}",
       color: :good,
       fields: assemble_slack_attachment_fields
     }
