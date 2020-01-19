@@ -14,3 +14,5 @@ Password : <%= @guest_reg.radius_password %>
 
 ご利用期限は <%= I18n.l(@guest_reg.not_after, format: :long) %> までとなります。
 
+利用規約:
+<%= IwaoConfig.fetch(:term_of_service) %>

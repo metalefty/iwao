@@ -99,6 +99,8 @@ GEM
     childprocess (3.0.0)
     coderay (1.1.2)
     commonjs (0.2.7)
+    commonmarker (0.20.2)
+      ruby-enum (~> 0.5)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     debug_inspector (0.0.3)
@@ -239,6 +241,8 @@ GEM
       json
     regexp_parser (1.6.0)
     remotipart (1.4.3)
+    ruby-enum (0.7.2)
+      i18n
     rubyzip (2.0.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -324,6 +328,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  commonmarker
   dotenv-rails
   fradium
   jbuilder (~> 2.7)
