@@ -30,8 +30,13 @@
     .col-md-10
       = f.text_field :escort, class: 'form-control', placeholder: t('activerecord.placeholders.guest_reg.escort')
   .form-group
+    label.col-md-2.control-label
+      = t('helpers.label.term_of_service')
+    .col-md-10
+      == markdown2html(IwaoConfig.fetch(:term_of_service))
+  .form-group
     .col-md-offset-2.col-md-10
-      == IwaoConfig.fetch(:new_guest_reg_note)
+      == markdown2html(IwaoConfig.fetch(:new_guest_reg_note))
   .form-group
     .col-md-offset-2.col-md-10
       = f.submit nil, :class => 'btn btn-primary'

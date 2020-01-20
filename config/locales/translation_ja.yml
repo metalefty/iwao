@@ -22,10 +22,10 @@ ja:
     placeholders:
       guest_reg:
         full_name: 飯塚 岩男
-        organization: イワオ株式会社 法人営業部
+        organization: イワオ株式会社 ○○事業部
         email: iizuka.iwao@example.co.jp
-        alt_email: iizuka.iwao@gmail.com.example
-        purpose: イワオシステム開発会議;飯塚ブロックチェーン勉強会
+        alt_email: iwaox@gmail.com.example
+        purpose: ○○勉強会; ○○プロジェクト定例ミーティング
         escort: 弊社の面会希望者・受け入れ担当者
   helpers:
     label:
