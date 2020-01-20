@@ -21,6 +21,8 @@
   [:email_subject_registration_receipt, 'ゲストWi-Fi利用登録を受け付けました'],
   # 利用登録通知メールの件名 (利用者向け)
   [:email_subject_registration_approved, 'ゲストWi-Fi利用登録が承認されました'],
+  # Slack通知の有効化
+  [:slack_notification_enable, false],
   # IWAOシステムで発行したアカウントで接続できるSSID
   [:wifi_ssid,              'haw-guest'],
   # 登録フォームの上に表示される注釈 (Markdown)
@@ -33,6 +35,7 @@
     EOS
     ]
   ],
+  # 利用規約 (Markdown)
   [:term_of_service, <<-"EOS"
 
 本利用規約は、株式会社○○（以下「当社」）がゲスト向けに
