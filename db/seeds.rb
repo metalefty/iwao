@@ -23,6 +23,8 @@
   [:email_subject_registration_approved, 'ゲストWi-Fi利用登録が承認されました'],
   # Slack通知の有効化
   [:slack_notification_enable, false],
+  # 自動承認の有効化
+  [:automatic_approval_enable, false],
   # IWAOシステムで発行したアカウントで接続できるSSID
   [:wifi_ssid,              'haw-guest'],
   # 登録フォームの上に表示される注釈 (Markdown)

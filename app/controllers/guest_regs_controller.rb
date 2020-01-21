@@ -75,6 +75,13 @@ class GuestRegsController < ApplicationController
         notifier.email_request_for_approval
         notifier.email_registration_receipt
 
+        if IwaoConfig.fetch(:automatic_approval_enable)
+          if @guest_reg.approve
+            notifier.slack_approved
+            notifier.email_registration_approved
+          end
+        end
+
         format.html { redirect_to sent_guest_regs_url, status: :see_other }
         format.json { render :show, status: :created, location: @guest_reg }
       else
