@@ -31,7 +31,7 @@ class GuestReg < ApplicationRecord
 
     self.attributes.each do |key, value|
       next if EXCLUDE_ATTRIBUTES.include?(key)
-      next if key == "alt_email" && value.empty?
+      next if key == "alt_email" && value.blank?
       s << "#{I18n.t("activerecord.attributes.guest_reg.#{key}")}:\n\t#{value}\n"
     end
     s

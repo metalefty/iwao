@@ -22,7 +22,7 @@ table.table.table-striped
         td= guest_reg.organization
         td
           div= guest_reg.email
-          - unless guest_reg.alt_email.empty?
+          - unless guest_reg.alt_email.blank?
             div= guest_reg.alt_email
         td= guest_reg.purpose
         td= guest_reg.escort
