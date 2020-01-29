@@ -39,9 +39,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'letter_opener_web'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'letter_opener_web', '~> 1.3'
+  gem 'better_errors', '~> 2.5.1'
+  gem 'binding_of_caller', '~> 0.8'
 end
 
 group :test do
@@ -55,16 +55,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'slim-rails'
+gem 'slim-rails', '~> 3.2'
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 3.2.2'
 
-gem 'pry-rails'
-gem 'fradium'
-gem 'recaptcha'
-gem 'dotenv-rails'
-gem 'aws-sdk-rails'
-gem 'rails_admin'
-gem 'rack-contrib'
-gem 'slack-notifier'
-gem 'commonmarker'
+gem 'pry-rails',' ~> 0.3'
+gem 'fradium', '~> 0.1.5'
+gem 'recaptcha', '~> 5.2.1'
+gem 'dotenv-rails', '~> 2.7.5'
+gem 'aws-sdk-rails', '~> 3.0.5'
+gem 'rails_admin', '~> 2.0.0'
+gem 'rack-contrib', '~> 2.1.0'
+gem 'slack-notifier', '~> 2.3.2'
+gem 'commonmarker', '~> 0.2'
