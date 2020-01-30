@@ -57,7 +57,7 @@ class GuestRegNotifier
 
     @guest_reg.attributes.each do |key, value|
       next if GuestReg::EXCLUDE_ATTRIBUTES.include?(key)
-      next if key == "alt_email" && value.empty?
+      next if key == "alt_email" && value.blank?
 
       fields << {
         title: I18n.t("activerecord.attributes.guest_reg.#{key}"),
